@@ -22,7 +22,7 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
     <List>
       {data.map((genre) => {
         return (
-          <ListItem key={genre.id} paddingY="5px">
+          <ListItem key={genre.id} paddingY="5px" overflow={"hidden"}>
             <HStack>
               <Image
                 boxSize="50px"
@@ -36,7 +36,9 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
                 variant="link"
                 fontSize="lg"
               >
-                {genre.name}
+                {genre.name == "Massively Multiplayer"
+                  ? "Multiplayer"
+                  : genre.name}
               </Button>
             </HStack>
           </ListItem>
