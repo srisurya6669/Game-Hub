@@ -10,7 +10,7 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <>
-      <Card>
+      <Card cursor="pointer">
         <Image src={getCropedImageURL(game.background_image)}></Image>
         <CardBody>
           <HStack justifyContent="space-between">
