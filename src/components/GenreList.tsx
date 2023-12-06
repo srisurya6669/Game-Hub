@@ -13,9 +13,9 @@ import getCropedImageURL from "../services/image-url";
 
 interface Props {
   onSelectedGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
-const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
+const GenreList = ({ onSelectedGenre, selectedGenreId }: Props) => {
   const { data, isLoading, error } = useGenres();
   if (error) return null;
   if (isLoading) return <Spinner />;
@@ -39,8 +39,8 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
                   whiteSpace="normal"
                   textAlign="left"
                   onClick={() => onSelectedGenre(genre)}
-                  fontWeight={genre.id == selectedGenre?.id ? "bold" : ""}
-                  fontStyle={genre.id == selectedGenre?.id ? "italic" : ""}
+                  fontWeight={genre.id == selectedGenreId ? "bold" : ""}
+                  fontStyle={genre.id == selectedGenreId ? "italic" : ""}
                   variant="link"
                   fontSize="lg"
                 >
